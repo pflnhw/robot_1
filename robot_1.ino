@@ -44,7 +44,24 @@ void setup()
 }
 
 void loop(){
-  
+  // 시리얼 통신
+  String input;
+  if(Serial.available()){
+    input = Serial.readStringUntil('\n');
+    if(input.equals("ON")){
+      servo1.write(90);
+      delay(1000);
+      servo3.write(90);
+      delay(1000);
+    }
+    else if(input.equals("OFF")){
+      servo1.write(0);
+      delay(1000);
+      servo3.write(0);
+      delay(1000);
+    }
+  }
+
   // 가변저항 값 저장
   int sensorInput1 = analogRead(mvpin1);
   sensorInput1 = map(sensorInput1, 0, 1023, 0, 180);
