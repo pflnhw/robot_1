@@ -50,15 +50,15 @@ void loop(){
     input = Serial.readStringUntil('\n');
     if(input.equals("ON")){
       servo1.write(90);
-      delay(1000);
-      servo3.write(90);
-      delay(1000);
+      delay(500);
+      servo3.write(180);
+      delay(500);
     }
     else if(input.equals("OFF")){
       servo1.write(0);
-      delay(1000);
+      delay(500);
       servo3.write(0);
-      delay(1000);
+      delay(500);
     }
   }
 
